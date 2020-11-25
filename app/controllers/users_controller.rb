@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            flash[:sucess] = "Welcome to MyChatApp #{@user.username}, you have successfully signed up !"
+            flash[:success] = "Welcome to MyChatApp #{@user.username}, you have successfully signed up !"
             redirect_to root_path
         else
             render 'new'
