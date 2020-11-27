@@ -27,10 +27,7 @@
       <% end %>
     </div>
     <div class="middle aligned column">
-      <div class="ui big button purple">
-        <i class="signup icon"></i>
-        <%= link_to 'Log In', login_path, class: "color-action" %>
-      </div>
+        <%= link_to '<i class="signup icon"></i> Log In'.html_safe, login_path, class: "ui big button purple"  %>
     </div>
   </div>
   <div class="ui vertical divider">

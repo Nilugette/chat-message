@@ -26,9 +26,16 @@ submit_message = function() {
     $('#message_body').on('keydown', function(e) {
         if (e.keyCode == 13) {
             $('button').click();
-            e.target.value = "";
-        };
+            e.target.value = ""; 
+            e.preventDefault();  
+        }; 
     });
+
+    $('#message_form').on("ajax:success", function(e, data, status, xhr) {
+        $('#message_body').val(''); 
+        e.preventDefault();  
+    }); 
+    
 };
 
 $(document).on('turbolinks:load', function(){
@@ -36,6 +43,8 @@ $(document).on('turbolinks:load', function(){
     $('.message .close').on('click', function() {
         $(this).closest('.message').transition('fade');
     });
+
     submit_message();
     scroll_bottom();
+  
 })
